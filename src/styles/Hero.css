@@ -1,0 +1,332 @@
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 120px 7% 80px;
+
+  position: relative;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.55)
+    ),
+    url("https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600");
+
+  background-size: cover;
+  background-position: center;
+
+  overflow: hidden;
+}
+
+.dark-theme .hero {
+  background:
+    linear-gradient(
+      rgba(0,0,0,.75),
+      rgba(0,0,0,.75)
+    ),
+    url("https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1600");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(0,200,150,.2),
+      transparent 40%
+    );
+}
+
+.hero-content {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 60px;
+
+  z-index: 2;
+}
+
+/* LEFT */
+
+.hero-left {
+  flex: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+
+  padding: 8px 16px;
+
+  border-radius: 30px;
+
+  color: white;
+
+  font-size: .8rem;
+  font-weight: 600;
+
+  background: rgba(255,255,255,.15);
+
+  backdrop-filter: blur(10px);
+
+  margin-bottom: 20px;
+}
+
+.hero-left h1 {
+  color: white;
+
+  font-size: clamp(2.2rem,4vw,3.2rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  margin-bottom: 16px;
+}
+
+.hero-left h1 span {
+  color: #00c896;
+}
+
+.hero-left p {
+  color: rgba(255,255,255,.9);
+
+  font-size: .95rem;
+
+  max-width: 600px;
+
+  line-height: 1.8;
+
+  margin-bottom: 30px;
+}
+
+/* BUTTONS */
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+
+  margin-bottom: 35px;
+}
+
+.primary-btn {
+  border: none;
+
+  padding: 13px 28px;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  color: white;
+
+  font-size: .95rem;
+  font-weight: 700;
+
+  background: linear-gradient(
+    135deg,
+    #00c896,
+    #00a97f
+  );
+
+  transition: .3s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  border: 1px solid rgba(255,255,255,.2);
+
+  padding: 13px 28px;
+
+  border-radius: 50px;
+
+  cursor: pointer;
+
+  color: white;
+
+  background: rgba(255,255,255,.08);
+
+  backdrop-filter: blur(10px);
+
+  transition: .3s;
+}
+
+.secondary-btn:hover {
+  background: rgba(86, 192, 29, 0.15);
+}
+
+/* STATS */
+
+.hero-stats {
+  display: flex;
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  min-width: 85px;
+
+  padding: 10px 12px;
+
+  border-radius: 12px;
+
+  text-align: center;
+
+  background: rgba(255,255,255,.06);
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  transition: .3s;
+}
+.stat-card h3 {
+  color: #00c896;
+
+  font-size: 1.1rem;
+
+  font-weight: 800;
+
+  margin-bottom: 4px;
+}
+.stat-card p {
+  color: white;
+
+  font-size: .72rem;
+
+  margin: 0;
+}
+
+/* RIGHT */
+
+.hero-right {
+  flex: 1;
+
+  display: flex;
+  justify-content: center;
+
+  position: relative;
+}
+
+.hero-right img {
+  width: 100%;
+  max-width: 500px;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+}
+
+.floating-card {
+  position: absolute;
+
+  padding: 12px 18px;
+
+  border-radius: 15px;
+
+  color: white;
+
+  font-size: .9rem;
+  font-weight: 600;
+
+  background: rgba(255,255,255,.12);
+
+  backdrop-filter: blur(10px);
+
+  animation: floatCard 3s ease-in-out infinite;
+}
+
+.top-card {
+  top: 30px;
+  left: 0;
+}
+
+.bottom-card {
+  bottom: 30px;
+  right: 0;
+}
+
+@keyframes floatCard {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 992px) {
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-stats {
+    justify-content: center;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .hero {
+    padding: 120px 5% 80px;
+  }
+
+  .hero-left h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-right img {
+    max-width: 100%;
+  }
+
+  .floating-card {
+    font-size: .8rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 1.9rem;
+  }
+}
